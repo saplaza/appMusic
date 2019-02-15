@@ -1,0 +1,126 @@
+<!--
+  Generated template for the MusicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="home-header">
+    <ion-navbar color="header"> 
+        <div class="toggle-menu" menuToggle>
+            <div class="line1">
+            </div>
+
+            <div class="line2">
+            </div>
+
+            <div class="line1">
+            </div>
+        </div>
+        
+        <ion-navbar>
+		  <ion-title>Music</ion-title>
+		</ion-navbar>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+ 	<!-- <ion-item-sliding *ngFor="let animal of animales; let i = index">
+	    <ion-item  (click)="reproducir(animal)">
+	      <ion-avatar item-start>
+	        <img src="{{ animal.imagen }}">
+	      </ion-avatar>
+	      <h2>{{ animal.nombre }}</h2>
+	      <ion-icon *ngIf="animal.reproduciendo" name="pause" item-end></ion-icon>
+	      <ion-icon *ngIf="!animal.reproduciendo" name="play" item-end></ion-icon>
+	      <audio src="{{ animal.audio }}" controls></audio>
+	    </ion-item>
+
+	    <ion-item-options side="right">
+	      <button ion-button color="danger" (click)="borrar(i)">
+	        <ion-icon name="trash"></ion-icon>
+	        Borrar
+	      </button>
+	    </ion-item-options>
+	</ion-item-sliding>  -->
+
+	<div class="grid-x" id="blue-playlist-container">
+			<div class="large-10 medium-12 small-11 large-centered medium-centered small-centered cell" id="amplitude-player">
+				<div class="grid-x">
+				  <div class="large-6 medium-6 small-12 cell" id="amplitude-left">
+				    <img id="cover_art_url" style="height: 20vh;"/>
+				    <div id="player-left-bottom">
+				      <div id="time-container">
+				        <span class="current-time">
+				          <span (click)="progressBar()" class="amplitude-current-minutes" ></span>:<span class="amplitude-current-seconds"></span>
+				        </span>
+				        <div id="progress-container">
+				          <input type="range" class="amplitude-song-slider"/>
+				          <progress id="song-played-progress" class="amplitude-song-played-progress"></progress>
+				          <progress id="song-buffered-progress" class="amplitude-buffered-progress" value="0"></progress>
+				        </div>
+				        <span class="duration">
+				          <span class="amplitude-duration-minutes"></span>:<span class="amplitude-duration-seconds"></span>
+				        </span>
+				      </div>
+
+				      <div id="control-container">
+				        <div id="repeat-container">
+				          <div class="amplitude-repeat amplitude-repeat-off" (click)="loopCancion()" id="repeat"></div>
+				          <div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle" style="display:none"></div>
+				        </div>
+
+				        <div id="central-control-container">
+				          <div id="central-controls">
+				            <div class="amplitude-prev" (click)="anteriorCancion()" id="previous"></div>
+				            <div class="amplitude-play-pause amplitude-paused" id="play-pause" (click)="playcancion()"></div>
+				            <div class="amplitude-next" (click)="siguenteCancion()" id="next"></div>
+				          </div>
+				        </div>
+
+				        <div id="volume-container">
+				          <div class="volume-controls">
+				            <div class="amplitude-mute amplitude-not-muted"></div>
+				            <input type="range" class="amplitude-volume-slider"/>
+				            <div class="ms-range-fix"></div>
+				          </div>
+				          <div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle-right" style="display:none"></div>
+				        </div>
+				      </div>
+
+
+
+				      <div id="meta-container">
+				        <span id="name_song" class="song-name"></span>
+
+				        <div class="song-artist-album">
+				          <span id="album"></span>
+				        </div>
+				      </div>
+				      <audio preload="auto" id="audioplay"></audio>
+				    </div>
+				  </div>
+				  <div class="large-6 medium-6 small-12 cell" id="amplitude-right" style="height: 27vh;">
+				  
+				    <div *ngFor="let cancion of canciones; let i = index" class="song amplitude-song-container amplitude-play-pause" data-amplitude-song-index="4" (click)="reproducir(cancion)" >
+				      <div class="song-now-playing-icon-container">
+				        <div class="play-button-container">
+				        </div>
+				        <img class="now-playing" src="./img/now-playing.svg"/>
+				      </div>
+				      <div class="song-meta-data">
+				        <span class="song-title">{{ cancion.nombre }}</span>
+				        <span class="song-artist">{{ cancion.album }}</span>
+				      </div>
+				      <span class="song-duration">{{mostrarMinutesSeconds(cancion.duracion)}}</span>
+				      <ion-icon *ngIf="cancion.reproduciendo" name="pause" item-end></ion-icon>
+	     			  <ion-icon *ngIf="!cancion.reproduciendo" name="play" item-end></ion-icon>
+				    </div>
+				    
+				    
+				  </div>
+				</div>
+			</div>
+		</div>
+</ion-content>
+

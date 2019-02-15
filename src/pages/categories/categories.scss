@@ -1,0 +1,106 @@
+.categoriesPage {
+    .scroll-content {
+        overflow-y: hidden;
+    }
+    .attributes {
+        .list>.item-block:first-child {
+            border-top: 0;
+        }
+        .list>.item-block:last-child {
+            border-bottom: 0;
+        }
+        .grid {
+            padding: 0;
+        }
+        .col-left {
+            padding: 0;
+            background-color: #f8f8f8;
+            margin-right: -50px;
+            padding-right: 50px;
+            max-width: 44%;
+            .button-inner {
+                justify-content: flex-start; //text-transform: none;
+            }
+            .tab-left-item {
+                h2 {
+                    font-size: 11px;
+                    padding: 12px 5px;
+                    margin: 0 5px;
+                    max-width: 110px;
+                    text-transform: capitalize;
+                    color: #888;
+                }
+            }
+            .selected {
+                background-color: #fff;
+                border-left: 4px solid #3b3b3b;
+                h2 {
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    color: #000;
+                }
+            }
+        }
+        .col-right {
+            padding: 0;
+            background-color: #fff;
+            margin-right: -50px;
+            padding-right: 50px;
+            .cat-image {
+                margin: 0;
+                text-align: center;
+                img{
+                   // max-height: 120px;
+                }
+            }
+            .row.unlimited-items {
+                flex-wrap: wrap;
+                padding: 0;
+                .col {
+                    width: 31%;
+                    padding: 10px 0px 8px;
+                    max-width: 31%;
+                    min-width: 31%;
+                    margin-bottom: 5px;
+                    margin-left: 5px;
+                    img {
+                        height: 90px;
+                        width: 70px;
+                        display: block;
+                        margin: auto;
+                    }
+                    .label {
+                        margin: 8px 0 0;
+                        text-align: center;
+                        text-transform: capitalize;
+                        font-size: 9px;
+                    }
+                }
+            }
+            .item {
+                padding: 0;
+                .button {
+                    color: #000;
+                    background-color: #e8e8e8;
+                    height: 30px;
+                    font-weight: 600;
+                    font-size: 12px;
+                    border-radius: 20px;
+                    margin-right: 0;
+                    border: 1px solid #ffffff;
+                    box-shadow: none;
+                }
+            }
+            .item-ios.item-block .item-inner {
+                padding-right: 4px;
+            }
+        }
+    }
+}
+
+.category-header{
+    .toolbar-title-md {
+        font-size: 18px;
+        padding-left: 70px;
+    }    
+}

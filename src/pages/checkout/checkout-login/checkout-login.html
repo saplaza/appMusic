@@ -1,0 +1,45 @@
+<ion-header no-border class="login-header">
+    <ion-navbar>
+    <ion-buttons end>
+        <button ion-button (click)="dismiss()">
+            <ion-icon name="md-close"></ion-icon>
+        </button>
+    </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+<ion-content class="account-login">
+    <div class="shop-info">
+        <img src="assets/image/logo.png">
+    </div>
+
+    <div>
+        <form #f="ngForm" class="login">
+            <ion-list>
+                <ion-item>
+                    <ion-label fixed>{{"Username" | translate}}</ion-label>
+                    <ion-input required type="email" [(ngModel)]="loginData.username" name="firstname"> </ion-input>
+                </ion-item>
+                <ion-item *ngIf="!showPasswordEnable">
+                    <ion-label fixed>{{"Password" | translate}}</ion-label>
+                    <ion-input required type="password" [(ngModel)]="loginData.password" name="password"> </ion-input>
+                    <ion-icon *ngIf="loginData.password" item-right name="ios-eye" (click)="showPassword()" style="font-size: 2.5rem;z-index:10"></ion-icon>
+                </ion-item>
+                <ion-item *ngIf="showPasswordEnable">
+                    <ion-label fixed>{{"Password" | translate}}</ion-label>
+                    <ion-input required type="text" [(ngModel)]="loginData.password" name="password"> </ion-input>
+                    <ion-icon item-right name="ios-eye-off" (click)="hidePassword()" style="font-size: 2.5rem;z-index:10"></ion-icon>
+                </ion-item>
+                <h2 tappable (click)="forgotten()">{{"Forgot Password" | translate}}?</h2>
+            </ion-list> <button ion-button outline full type="submit" text-uppercase [disabled]="disableSubmit" (click)="login()">{{LogIn | translate}}
+      </button> <br> </form>
+        <div class="signup">
+            <h2>{{"Don't have an account" | translate}}? <a (click)="signup()"> {{"SIGN UP" | translate}}</a></h2>
+        </div>
+
+        <div class="signup">
+            <button ion-button clear full type="submit" text-uppercase (click)="guest()">{{"Continue As Guest" | translate}}
+      </button>
+        </div>
+    </div>
+</ion-content>

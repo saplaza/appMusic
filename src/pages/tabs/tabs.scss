@@ -1,0 +1,67 @@
+   .tabs-md .tabbar {
+       background: #0D1427;
+   }
+   .tabs-ios .tabbar {
+       background: #0D1427;
+   }
+   .tabs-md .tab-button {
+       color: #000;
+   }
+   .tabs-md .tab-button[aria-selected=true] {
+       color: $button-color;
+   }
+   .tabs-ios .tab-button {
+       color: #000;
+   }
+   .tabs-ios .tab-button[aria-selected=true] {
+       color: $button-color;
+   }
+   .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+       color: $button-color;
+   }
+   .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+       color: $button-color;
+       margin-top: 0;
+   }
+   .has-icon .tab-badge {
+       right: calc(50% - 22px);
+       top: 0px;
+   }
+   .tabs-ios .tab-button-icon, .tabs-md .tab-button-icon {
+       margin-top: 0px;
+       margin-bottom: 0px;
+       min-width: 35px;
+       height: 27px;
+       font-size: 24px;
+       color: #8c8c8c;
+   }
+   .tabs-ios .tab-button-text, .tabs-md .tab-button-text {
+       margin-top: 0;
+       margin-bottom: 1px;
+       min-height: 16px;
+       font-size: 11px;
+   }
+   .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text {
+       margin-top: 0px;
+       margin-bottom: 0;
+   }
+   .tabs-ios .tabbar {
+       border-top: 0.55px solid rgba(185, 185, 185, 0.2);
+   }
+   .badge-md {
+       border-radius: 4px;
+       color: #000;
+       background-color: #ffffff;
+       border: 1px solid #f7f7f7;
+   }
+   .badge-ios {
+       border-radius: 4px;
+       color: #000;
+       background-color: #ffffff;
+       border: 1px solid #f7f7f7;
+   }
+   .ion-md-musical-notes-miapp{
+      color: #000;
+      background: url('/assets/image/icon_play.png') no-repeat center top;
+      background-color: transparent;
+   }

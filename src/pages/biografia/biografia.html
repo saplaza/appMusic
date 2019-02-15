@@ -1,0 +1,46 @@
+<!--
+  Generated template for the BiografiaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="home-header">
+    <ion-navbar color="header"> 
+        <div class="toggle-menu" menuToggle>
+            <div class="line1">
+            </div>
+
+            <div class="line2">
+            </div>
+
+            <div class="line1">
+            </div>
+        </div>
+        
+        <ion-navbar>
+      <ion-title>Biography</ion-title>
+    </ion-navbar>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <!-- <div class="spinner center-spinner"><ion-spinner *ngIf="loading" name="crescent"> </ion-spinner></div> -->
+  
+    <div *ngFor="let children of service?.blocks" class="blocks">
+            <div *ngIf="children.children?.length && children.title == 'biography_static'" [ngClass]="{'floating-header': children.header_align == 'left_floating'}" class="floating-header banner-scroll">
+              <ion-card *ngFor="let image of children.children">
+                    <img class="banner" tappable src="{{image.image}}" (click)="goto(image)" [style.border-radius]="children.border_radius" [style.width.%]="children.child_width">
+                    <ion-card-content>
+                      <ion-card-title>
+                        {{ image.title }}
+                      </ion-card-title>
+                      <p>
+                        {{ image.description }}
+                      </p>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+    </div>
+  
+</ion-content>

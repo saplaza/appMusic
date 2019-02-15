@@ -1,0 +1,73 @@
+<ion-header class="home-header">
+    <ion-navbar color="header"> 
+        <div class="toggle-menu" menuToggle>
+            <div class="line1">
+            </div>
+
+            <div class="line2">
+            </div>
+
+            <div class="line1">
+            </div>
+        </div>
+        
+        <ion-title><img src="assets/image/logo.png"> 
+        </ion-title>
+
+        <ion-buttons end> 
+            <button ion-button icon-only (click)="getSearch()">
+                <ion-icon ios="ios-search" md="md-search">
+                </ion-icon>
+            </button> 
+            <button ion-button icon-only class="has-icon icon-only has-badge" (click)="getCart()">
+                <ion-icon name="md-basket">
+                </ion-icon>
+                <ion-badge class="badge badge-light" *ngIf="values.count != 0">{{values.count}}
+                </ion-badge>
+            </button> 
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="home card-background-page">
+    <ion-refresher *ngIf="values.settings.pull_to_refresh == '1'" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div *ngFor="let children of service?.blocks" hideWhen="loading" class="blocks">
+
+        <div *ngIf="children.block_type == 'banner_block'" [style.background-color]="children.bg_color" [style.margin]="children.margin" [style.padding]="children.padding" class="banner_block">
+
+        <div class="{{children.header_align}}" [style.color]="children.title_color">{{children.title}}</div>    
+            <!-- Banner Slider -->
+            <!-- <div *ngIf="children.children?.length && children.style == 'slider'">
+                <ion-slides pager="true" loop="true" autoplay="5800">
+                        <ion-slide *ngFor="let image of children.children"> 
+                            <img src="{{image.image}}" (click)="goto(image)" (load)="hideLoading()" [style.border-radius]="children.border_radius">
+                        </ion-slide>
+                </ion-slides>
+            </div> -->
+
+            <!-- Banner Scroll -->
+            <!-- <div *ngIf="children.children?.length && children.style == 'scroll'" [ngClass]="{'floating-header': children.header_align == 'left_floating'}" class="floating-header banner-scroll">
+                    <img class="banner" tappable *ngFor="let image of children.children" (load)="hideLoading()" src="{{image.image}}" (click)="goto(image)" (tap)="myaction(image.url)" [style.border-radius]="children.border_radius" [style.width.%]="children.child_width">
+            </div> -->
+
+            <!-- Banner Grid -->
+            <div *ngIf="children.children?.length && children.style == 'grid'" class="banner-grid">
+                <ion-row class="row unlimited-items">
+                    <ion-col *ngFor="let image of children.children" (load)="hideLoading()" [style.width.%]="children.child_width">
+                        <img src="{{image.image}}" (click)="goto(image)" (tap)="miaction(image.url)" [style.border-radius]="children.border_radius" class="{{children.card_style}}"> 
+                    </ion-col>
+                </ion-row>
+            </div>  
+
+        </div>
+
+    </div>
+
+
+   <ion-fab bottom right *ngIf="values.settings.enable_home_chat == '1'">
+        <a href="https://wa.me/{{values.settings.whatsapp_number}}"><button ion-fab color="secondary" mini><ion-icon name="chatbubbles"></ion-icon></button></a>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,59 @@
+<!--
+  Generated template for the EventsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="home-header">
+    <ion-navbar color="header"> 
+        <div class="toggle-menu" menuToggle>
+            <div class="line1">
+            </div>
+
+            <div class="line2">
+            </div>
+
+            <div class="line1">
+            </div>
+        </div>
+        
+        <ion-navbar>
+		  <ion-title>Events</ion-title>
+		</ion-navbar>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="cards-bg">
+
+  <div *ngFor="let children of service?.blocks" class="blocks">
+            <div *ngIf="children.children?.length && children.title == 'events_static'" [ngClass]="{'floating-header': children.header_align == 'left_floating'}" class="floating-header banner-scroll">
+              <ion-card *ngFor="let image of children.children">
+                  <div>
+                    <img class="banner" tappable src="{{image.image}}" (click)="goto(image)" [style.border-radius]="children.border_radius" [style.width.%]="children.child_width">
+                  </div>
+                    <ion-card-content>
+                      <ion-card-title>
+                        {{ image.title }}
+                      </ion-card-title>
+                      <p>
+                        {{ image.description.substr(1,100) }}...
+                      </p>
+                    </ion-card-content>
+                    <ion-row no-padding>
+                      <ion-col text-right>
+                        <button (tap)="eventsone(image)" ion-button clear small color="danger" icon-start>
+                          <ion-icon name='share-alt'></ion-icon>
+                          Ver mas
+                        </button>
+                      </ion-col>
+                    </ion-row>
+                </ion-card>
+            </div>
+    </div>
+
+
+
+
+
+</ion-content>

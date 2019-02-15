@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ProductsnewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="header"> 
+        <div class="toggle-menu" menuToggle>
+            <div class="line1">
+            </div>
+
+            <div class="line2">
+            </div>
+
+            <div class="line1">
+            </div>
+        </div>
+        
+        <ion-navbar>
+          <ion-title>Products News</ion-title>
+        </ion-navbar>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="home">
+    <div *ngIf="service.featuredProduct?.length" class="products-listing">
+        <!--ion-item no-lines class="item-name">
+            <ion-label>{{"Latest Products" | translate}} </ion-label>
+        </ion-item-->
+        <div class="grid">
+            <ion-row class="row unlimited-items">
+                <ion-col class="col" *ngFor="let item of service.featuredProduct">
+                    <ion-card>
+                        <ion-card-content> 
+                            <img [style.height.px]="values.dimensions.imageGridViewHeight" tappable src="{{item.images[0].src}}" (load)="hideLoading()" (click)="getProduct(item)"> 
+                            <button ion-button color="danger" class="stock" *ngIf="!item.in_stock">{{"No Stock" | translate}}
+                            </button>
+                            <ion-icon name="md-heart" class="wishlist-button-grid1" *ngIf="values.wishlistId[item.id]" (click)="removeFromWishlist(item.id)"></ion-icon>
+                            <ion-icon name="md-heart-outline" class="wishlist-button-grid2" *ngIf="!values.wishlistId[item.id]" (click)="addToWishlist(item.id)"></ion-icon>
+
+                            <div *ngIf="item.in_stock">
+                            <button ion-button class="offer" *ngIf="((item.regular_price - item.price) /item.regular_price*100) >= '1'">{{(item.regular_price - item.price) /item.regular_price*100 | number : '1.0-0'}}%</button>
+                            </div>
+
+                        </ion-card-content>
+
+                        <div tappable (click)="getProduct(item)" class="card-name">
+                            <ion-label *ngIf="item.title">{{item.title}} </ion-label>
+                            <ion-label *ngIf="item.name">{{item.name}} </ion-label>
+                        </div>
+
+                        <ion-label> 
+                            <span class="price-regular" *ngIf="!item.sale_price">{{1*item.price | currency:values.currency:symbol:'1.2-2'}}
+                            </span> 
+                            <span class="price-regular" *ngIf="item.sale_price">{{1*item.sale_price | currency:values.currency:symbol:'1.2-2'}}
+                            </span>
+                            <span class="price-delete" *ngIf="item.sale_price">
+                                <del>{{1*item.regular_price | currency:values.currency:symbol:'1.2-2'}}
+                                </del>
+                            </span>  
+                        </ion-label>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </div>
+        
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="service.has_more_items">
+            <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="{{'Loading More Items' | translate}}"> </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+
+</ion-content>

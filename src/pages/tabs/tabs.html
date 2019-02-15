@@ -1,0 +1,8 @@
+<ion-tabs tabsPlacement="bottom">
+    <ion-tab [root]="tab1Root" tabTitle=" {{'Home' | translate}}" tabIcon="md-home" (ionSelect)="home($event)"></ion-tab>
+   <!--  <ion-tab [root]="tab2Root" tabTitle="{{'Categories' | translate}}" tabIcon="md-apps" (ionSelect)="category($event)"></ion-tab> -->
+    <ion-tab [root]="tab6Root" tabTitle="{{'Events' | translate}}" tabIcon="md-calendar" (ionSelect)="events($event)"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="{{'Account' | translate}}" tabIcon="md-person" (ionSelect)="account($event)"></ion-tab>
+    <ion-tab [root]="tab5Root" tabTitle="{{'Music' | translate}}" tabIcon="md-musical-notes-miapp" (ionSelect)="music($event)"><img src="/assets/image/icon_play.png"></ion-tab>
+</ion-tabs>
+<!-- tabIcon="md-musical-notes" -->

@@ -1,0 +1,136 @@
+<ion-menu [content]="content" type="overlay">
+   <div class="menu-toolbar">
+      <ion-icon menuClose name="md-close" class="close"></ion-icon>
+      <ion-toolbar>
+         <img src="assets/image/logomenu.png">
+      </ion-toolbar>
+   </div>
+   <ion-content class="sidemenugrad">
+      <!-- <div *ngIf="service.categories" class="category-name-list">
+         <ion-row tappable full *ngFor="let item of service.mainCategories; let i = index">
+            <ion-item (click)="getSubCategoryDropdown(i)" class="category" no-lines [ngClass]="{selected : service.mainCategories[i].activated}">
+            <h4 [innerHTML]="item.name">
+            </h4>
+            <h4 item-right *ngIf="service.mainCategories[i].activated" no-margin>
+               <ion-icon name="ios-arrow-up" item-right style="margin-top:0"></ion-icon>
+            </h4>
+            <h4 item-right *ngIf="!service.mainCategories[i].activated" no-margin>
+               <ion-icon name="ios-arrow-down" item-right></ion-icon>
+            </h4>
+            </ion-item>
+            <div *ngIf="service.mainCategories[i].activated" style="width:100%; background: #f9f9f9;">
+               <div class="sub-category">
+                  <ion-item tappable no-lines class="category-title" (click)="getCategory(item.id, item.slug, item.name)">
+                        {{"View All" | translate}}
+                  </ion-item>
+                     <div *ngFor="let subcat of service.categories">
+                     <ion-item tappable *ngIf="subcat.parent == item.id" no-lines class="category-title" (click)="getCategory(subcat.id, subcat.slug, subcat.name)">
+                        <span class="category-name" [innerHTML]="subcat.name"></span>
+                     </ion-item>
+                  </div>
+               </div>
+            </div>
+         </ion-row>
+      </div> -->
+      <ion-list class="list-items">
+         <ion-item tappable menuClose (click)="shop()" [ngClass]="{selected: activated}">
+         {{"Home" | translate}}
+         <ion-icon name="ios-home" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="login()" *ngIf="!values.isLoggedIn" [ngClass]="{selected: activated}">
+         {{"LogIn" | translate}} / {{"Sign Up" | translate}}
+         <ion-icon name="contact" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="cart()">
+            {{"Checkout" | translate}}
+            <ion-icon name="cart" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="events()" [ngClass]="{selected: activated}">
+         {{"Tours & Events" | translate}}
+         <ion-icon name="calendar" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="radio()" [ngClass]="{selected: activated}">
+         {{"Radio 24/7" | translate}}
+         <ion-icon name="radio" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="music()" [ngClass]="{selected: activated}">
+         {{"Pay Music" | translate}}
+         <ion-icon name="musical-notes" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="photos()" [ngClass]="{selected: activated}">
+         {{"Multimedia Gallery" | translate}}
+         <ion-icon name="images" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="tienda()" [ngClass]="{selected: activated}">
+         {{"Shop" | translate}}
+         <ion-icon name="calendar" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="logout()" *ngIf="values.isLoggedIn">
+         {{"Logout" | translate}}
+         <ion-icon name="contact" item-left></ion-icon>
+         </ion-item>
+         <!--ion-item tappable menuClose (click)="contact()">
+            {{"contact" | translate}}
+            <ion-icon name="ios-mail" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="post(values.data.pages.about)">
+            {{"About us" | translate}}
+            <ion-icon name="ios-information-circle" item-left></ion-icon>
+         </ion-item>
+         <ion-item tappable menuClose (click)="post(values.data.pages.terms)">
+            <ion-icon name="ios-paper" item-left></ion-icon>
+            {{"Terms & Conditions" | translate}}
+         </ion-item>
+         <ion-item tappable menuClose no-line (click)="shareApp()">
+            <ion-icon name="md-share" item-left></ion-icon>
+            {{"Share App" | translate}}
+         </ion-item>
+         <ion-item tappable menuClose no-line (click)="rateApp()">
+            <ion-icon name="md-thumbs-up" item-left></ion-icon>
+            {{"Rate App" | translate}}
+         </ion-item-->
+      </ion-list>
+   </ion-content>
+   <!-- <ion-footer>
+       <div class="menu-footer">
+
+        <h5 class="footer-icons">
+         <a href="https://www.facebook.com/">
+         <ion-icon name="logo-facebook" style="color: #3b5998;"></ion-icon>
+         </a>
+         <a href="https://twitter.com/">
+         <ion-icon name="logo-twitter" style="color: #1dcaff;"></ion-icon>
+         </a>
+         <a href="https://plus.google.com">
+         <ion-icon name="logo-googleplus" style="color: #d34836;"></ion-icon>
+         </a>
+        </h5>
+
+        <ion-row>
+            <ion-col tappable menuClose>
+                <h6 (click)="shareApp()">{{"Share App" | translate}}</h6>
+            </ion-col>
+            <ion-col tappable menuClose>
+                <h6 (click)="contact()">{{"Feedback" | translate}}</h6>
+            </ion-col>
+            <ion-col tappable menuClose>
+                <h6 (click)="rateApp()">{{"Rate App" | translate}}</h6>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col tappable menuClose>
+                <h6 (click)="contact()">{{"Contact Us" | translate}}</h6>
+            </ion-col>
+            <ion-col tappable menuClose>
+                <h6 (click)="post(this.values.data.pages.terms)">{{"Terms" | translate}}</h6>
+            </ion-col>
+            <ion-col tappable menuClose>
+                <h6 (click)="post(this.values.data.pages.about)">{{"About us" | translate}}</h6>
+            </ion-col>
+        </ion-row>
+
+    </div>
+   </ion-footer> -->
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+</ion-nav>
